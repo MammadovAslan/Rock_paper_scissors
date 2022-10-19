@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #15193c;
+}
+
+#container {
+  max-width: 500px;
+}
+@media (min-width: 564px) {
+  #container {
+    margin: 50px auto;
+  }
+}
+#container #title {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vh;
+  border: 1px solid #fbfbfb;
+  border-radius: 10px;
+  color: #fcfffe;
+}
+#container #title #game-name {
+  font-weight: 800;
+  font-size: 24px;
+}
+#container #score {
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  padding: 1vh 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: 500;
+}
+@media (min-width: 564px) {
+  #container #score {
+    padding: 2vh 5vh;
+  }
+}
+#container #score #score-count {
+  display: block;
+  color: #7c86c4;
+  font-weight: 600;
+}
+#container #score #counter {
+  color: #575463;
+  font-size: 62px;
+  align-self: center;
+}
+#container #game {
+  position: relative;
+  height: 300px;
+}
+#container #game .game-button {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  color: #3c4262;
+  border-radius: 50%;
+  background-color: #e3e3e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 52px;
+  border: 18px solid #eba217;
+}
+#container #game .game-button.rock {
+  border-color: #db3452;
+  top: 50%;
+  left: 33%;
+}
+@media (min-width: 564px) {
+  #container #game .game-button.rock {
+    top: 60%;
+  }
+}
+#container #game .game-button.paper {
+  border-color: #4965f4;
+  top: 10%;
+  left: 53%;
+}
+#container #game .game-button.scissors {
+  top: 10%;
+  left: 13%;
+}
+#container #game .text {
+  font-size: 14px;
+  top: 60%;
+  text-transform: uppercase;
+  position: absolute;
+  font-weight: 600;
+  color: #fcfffe;
+}
+@media (min-width: 564px) {
+  #container #game .text {
+    font-size: 20px;
+    top: 12%;
+  }
+}
+#container #game .player {
+  left: 10%;
+}
+@media (min-width: 564px) {
+  #container #game .player {
+    left: -15%;
+  }
+}
+#container #game .home {
+  right: 5%;
+}
+@media (min-width: 564px) {
+  #container #game .home {
+    right: -18%;
+  }
+}
+#container #game .result {
+  position: absolute;
+  text-transform: uppercase;
+  top: 75%;
+  left: 25%;
+  display: none;
+}
+@media (min-width: 564px) {
+  #container #game .result {
+    top: 40%;
+  }
+}
+#container #game .result .result-message {
+  color: #fcfffe;
+  font-weight: 600;
+  margin-bottom: 2vh;
+  font-size: 32px;
+}
+@media (min-width: 564px) {
+  #container #game .result .result-message {
+    font-size: 42px;
+  }
+}
+#container #game .result .play-again-button {
+  text-transform: inherit;
+  color: #ae3f55;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+}
+
+.game-button,
+#rules,
+.play-again-button {
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+.game-button:hover,
+#rules:hover,
+.play-again-button:hover {
+  transform: scale(1.03);
+}
+.game-button:active,
+#rules:active,
+.play-again-button:active {
+  transform: scale(1);
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+}
+@media (min-width: 564px) {
+  footer {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+footer #rules {
+  padding: 8px 18px;
+  font-size: 12px;
+  border: 1px solid #fbfbfb;
+  color: #fbfbfb;
+  border-radius: 10px;
+  background: transparent;
+}
+@media (min-width: 564px) {
+  footer #rules {
+    padding: 12px 36px;
+    font-size: 18px;
+  }
+}
+
+.player-choise {
+  width: 80px !important;
+  height: 80px !important;
+  font-size: 50px !important;
+  top: 10% !important;
+  left: 4% !important;
+}
+@media (min-width: 564px) {
+  .player-choise {
+    width: 150px !important;
+    height: 150px !important;
+    font-size: 100px !important;
+    top: 30% !important;
+    left: -20% !important;
+  }
+}
+
+.home-choise {
+  width: 80px !important;
+  height: 80px !important;
+  font-size: 50px !important;
+  top: 10% !important;
+  left: 60% !important;
+}
+@media (min-width: 564px) {
+  .home-choise {
+    width: 150px !important;
+    height: 150px !important;
+    font-size: 100px !important;
+    top: 30% !important;
+    left: 80% !important;
+  }
+}

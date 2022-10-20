@@ -75,11 +75,11 @@ body {
     .game-button.paper {
       border-color: #4965f4;
       top: 10%;
-      left: 53%;
+      left: 13%;
     }
     .game-button.scissors {
       top: 10%;
-      left: 13%;
+      left: 53%;
     }
     .text {
       @media (min-width: 564px) {
@@ -135,10 +135,58 @@ body {
     }
   }
 }
+#rules-container {
+  position: relative;
+  background-color: #fff;
+  display: none;
+  @media (min-width: 564px) {
+    position: absolute;
+    top: -70px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    height: 110%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 40px;
+    width: 400px;
+  }
+  top: -150px;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  z-index: 3;
+  padding: 40px;
+  #rules {
+    @media (min-width: 564px) {
+      position: absolute;
+      left: 15%;
+    }
+  }
+  figcaption {
+    @media (min-width: 564px) {
+      margin-bottom: 20px;
+    }
+    color: #3f4461;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+  #close-rules-button {
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    color: #d0d1d5;
+  }
+}
 
 .game-button,
-#rules,
-.play-again-button {
+#rules-button,
+.play-again-button,
+#close-rules-button {
   transition: 0.1s ease;
   cursor: pointer;
   &:hover {
@@ -151,18 +199,20 @@ body {
 
 footer {
   position: fixed;
+  z-index: 1;
   @media (min-width: 564px) {
     right: 20px;
     bottom: 20px;
   }
   bottom: 0px;
-  #rules {
+  right: 35%;
+  #rules-button {
     @media (min-width: 564px) {
       padding: 12px 36px;
       font-size: 18px;
     }
-    padding: 8px 18px;
-    font-size: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
     border: 1px solid #fbfbfb;
     color: #fbfbfb;
     border-radius: 10px;
@@ -199,4 +249,16 @@ footer {
   font-size: 50px !important;
   top: 10% !important;
   left: 60% !important;
+}
+
+.shadow {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  opacity: 0.6;
 }

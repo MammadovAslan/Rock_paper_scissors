@@ -24,11 +24,11 @@ function playGame(event) {
       if (homeChoise === "paper") {
         showResultMessage("lose");
         showHomeChoise(paper);
-        reduceScore();
+        modifyScore();
       } else if (homeChoise === "scissors") {
         showResultMessage("win");
         showHomeChoise(scissors);
-        increaseScore();
+        modifyScore(true);
       } else {
         showHomeChoise(rock);
         showResultMessage("draw");
@@ -43,11 +43,11 @@ function playGame(event) {
       if (homeChoise === "paper") {
         showHomeChoise(paper);
         showResultMessage("win");
-        increaseScore();
+        modifyScore(true);
       } else if (homeChoise === "rock") {
         showResultMessage("lose");
         showHomeChoise(rock);
-        reduceScore();
+        modifyScore(false);
       } else {
         showHomeChoise(scissors);
         showResultMessage("draw");
@@ -62,11 +62,11 @@ function playGame(event) {
       if (homeChoise === "scissors") {
         showResultMessage("lose");
         showHomeChoise(scissors);
-        reduceScore();
+        modifyScore(false);
       } else if (homeChoise === "rock") {
         showResultMessage("win");
         showHomeChoise(rock);
-        increaseScore();
+        modifyScore(true);
       } else {
         showHomeChoise(paper);
         showResultMessage("draw");
@@ -94,37 +94,37 @@ function playNewRound() {
   gameContainer.addEventListener("click", playGame);
 }
 
-function homeChoose() {
+const homeChoose = () => {
   const randomNumber = Math.floor(Math.random() * (2 - 0 + 1));
   return actions[randomNumber];
-}
+};
 
-function increaseScore() {
-  counter.innerHTML = +counter.innerHTML + 1;
-}
+const modifyScore = (result) => {
+  result
+    ? (counter.innerHTML = +counter.innerHTML + 1)
+    : (counter.innerHTML = +counter.innerHTML - 1);
+};
 
-function reduceScore() {
-  counter.innerHTML = +counter.innerHTML - 1;
-}
-
-function removeOtherActions(target) {
+const removeOtherActions = (target) => {
   buttons.forEach((button) => {
     if (button !== target) {
       button.style.display = "none";
     }
   });
-}
+};
 
-function showPlayerChoise() {
+const showPlayerChoise = () => {
   const player = document.createElement("p");
   const home = document.createElement("p");
-  player.innerHTML = `<p class="text player">You picked</p>`;
-  home.innerHTML = `<p class="text home">The house picked</p>`;
+  player.classList.add("text", "player");
+  player.innerHTML = `You picked`;
+  home.classList.add("text", "home");
+  home.innerHTML = `The house picked`;
   gameContainer.prepend(player);
   gameContainer.prepend(home);
-}
+};
 
-function showHomeChoise(target) {
+const showHomeChoise = (target) => {
   const rockClone = rock.cloneNode(true);
   const paperClone = paper.cloneNode(true);
   const scissorsClone = scissors.cloneNode(true);
@@ -141,9 +141,9 @@ function showHomeChoise(target) {
     scissorsClone.classList.add("home-choise");
     gameContainer.append(scissorsClone);
   }
-}
+};
 
-function showResultMessage(message) {
+const showResultMessage = (message) => {
   resultContainer.style.display = "block";
   let resultMessage = document.createElement("p");
   resultMessage.classList.add("result-message");
@@ -158,4 +158,23 @@ function showResultMessage(message) {
   });
 
   resultContainer.prepend(resultMessage);
+};
+
+const rulesContainer = gameContainer.querySelector("#rules-container");
+const closeRulesButton = gameContainer.querySelector("#close-rules-button");
+const openRulesButton = document.querySelector("#rules-button");
+const shadow = document.querySelector(".shadow");
+
+openRulesButton.addEventListener("click", openRules);
+closeRulesButton.addEventListener("click", closeRules);
+shadow.addEventListener("click", closeRules);
+
+function openRules() {
+  rulesContainer.style.display = "flex";
+  shadow.style.display = "block";
+}
+
+function closeRules() {
+  rulesContainer.style.display = "none";
+  shadow.style.display = "none";
 }

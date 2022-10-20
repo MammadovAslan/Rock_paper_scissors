@@ -82,11 +82,11 @@ body {
 #container #game .game-button.paper {
   border-color: #4965f4;
   top: 10%;
-  left: 53%;
+  left: 13%;
 }
 #container #game .game-button.scissors {
   top: 10%;
-  left: 13%;
+  left: 53%;
 }
 #container #game .text {
   font-size: 14px;
@@ -151,26 +151,83 @@ body {
   border: none;
 }
 
+#rules-container {
+  position: relative;
+  background-color: #fff;
+  display: none;
+  top: -150px;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  z-index: 3;
+  padding: 40px;
+}
+@media (min-width: 564px) {
+  #rules-container {
+    position: absolute;
+    top: -70px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    height: 110%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 40px;
+    width: 400px;
+  }
+}
+@media (min-width: 564px) {
+  #rules-container #rules {
+    position: absolute;
+    left: 15%;
+  }
+}
+#rules-container figcaption {
+  color: #3f4461;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+@media (min-width: 564px) {
+  #rules-container figcaption {
+    margin-bottom: 20px;
+  }
+}
+#rules-container #close-rules-button {
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  color: #d0d1d5;
+}
+
 .game-button,
-#rules,
-.play-again-button {
+#rules-button,
+.play-again-button,
+#close-rules-button {
   transition: 0.1s ease;
   cursor: pointer;
 }
 .game-button:hover,
-#rules:hover,
-.play-again-button:hover {
+#rules-button:hover,
+.play-again-button:hover,
+#close-rules-button:hover {
   transform: scale(1.03);
 }
 .game-button:active,
-#rules:active,
-.play-again-button:active {
+#rules-button:active,
+.play-again-button:active,
+#close-rules-button:active {
   transform: scale(1);
 }
 
 footer {
   position: fixed;
+  z-index: 1;
   bottom: 0px;
+  right: 35%;
 }
 @media (min-width: 564px) {
   footer {
@@ -178,16 +235,16 @@ footer {
     bottom: 20px;
   }
 }
-footer #rules {
-  padding: 8px 18px;
-  font-size: 12px;
+footer #rules-button {
+  padding: 12px 24px;
+  font-size: 16px;
   border: 1px solid #fbfbfb;
   color: #fbfbfb;
   border-radius: 10px;
   background: transparent;
 }
 @media (min-width: 564px) {
-  footer #rules {
+  footer #rules-button {
     padding: 12px 36px;
     font-size: 18px;
   }
@@ -225,4 +282,16 @@ footer #rules {
     top: 30% !important;
     left: 80% !important;
   }
+}
+
+.shadow {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  opacity: 0.6;
 }

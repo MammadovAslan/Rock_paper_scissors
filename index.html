@@ -15,6 +15,7 @@
     <title>Rock-Paper-Scissors</title>
   </head>
   <body>
+    <div class="shadow"></div>
     <div id="container">
       <div id="title">
         <div id="game-name">
@@ -38,10 +39,17 @@
         <div class="result">
           <button class="play-again-button">Play again</button>
         </div>
+        <div id="rules-container">
+          <figure>
+            <figcaption>RULES</figcaption>
+            <img src="images/image-rules.svg" alt="relus" id="rules" />
+          </figure>
+          <button id="close-rules-button">X</button>
+        </div>
       </div>
     </div>
     <footer>
-      <button id="rules">RULES</button>
+      <button id="rules-button">RULES</button>
     </footer>
     <script src="app.js"></script>
   </body>
